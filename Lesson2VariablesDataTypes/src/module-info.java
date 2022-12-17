@@ -1,2 +1,0 @@
-module Lesson2VariablesDataTypes {
-}
