@@ -115,12 +115,15 @@ public class Lesson4Loops {
 		//Prompting the user to give us the number of rows he wants 
 		System.out.println("Please enter the number of rows followed by enter key.");
 		int size  = input.nextInt();
+		//The X pattern only works for Odd numbers so we will validate that information
+		while(size%2 == 0) {
+			System.out.println("The number of rows must be an odd number!");
+			System.out.println("Please type in a size which is an odd number followed by enter");
+			size  = input.nextInt();
+		}
 		//Prompting the user to enter the char he wants for the pattern
 		System.out.println("Please enter the char you wish followed by enter key.");
 		char pattern = input.next().charAt(0);
-		//closing the Scanner
-		input.close();
-		
 		//starting For sequence for the printing of the X 
 		System.out.println("---- Printing X Pattern of Stars ------");
 		for(int i = 0; i < size; i++) {
@@ -133,6 +136,10 @@ public class Lesson4Loops {
 			}
 			//starting new line
 			System.out.print("\n");
-		}
+		}			
 	}
+
+
+
+
 }
