@@ -118,10 +118,11 @@ public class Lion {
 		
 		System.out.print("Lion[Height = " + height + ", Weight= " + weight + ", ");
 		System.out.print("colour= " + colour + ", roarDecible= " + roarDecible);
-		System.out.print(", maneLenght= " + maneLength);
+		System.out.print(", maneLenght = " + maneLength);
 		//System.out.print(", Lion = ");
 		//lion.toString();
-		System.out.println("Lion" + lion);
+		System.out.println(" ,Lion ");
+		printLionAttributes(lion);
 		System.out.print(", lionIntArray = ");
 		printLionArray();
 		System.out.print("]");
@@ -135,6 +136,15 @@ public class Lion {
 	public String toString() {
 		return "Lion [height=" + height + ", weight=" + weight + ", colour=" + colour + ", roarDecible=" + roarDecible
 				+ ", maneLength=" + maneLength + ", lion=" + lion + "]";
+	}
+	public static void printLionAttributes(Lion myLion) {
+		String printLion;
+		printLion =  " Lion [height=" + height + ", weight=" + weight + ", colour=" + colour + ", roarDecible=" + roarDecible
+				+ ", maneLength=" + maneLength + ", lionIntArray = ";
+		System.out.print(printLion);
+		printLionArray();
+		System.out.print("]");
+
 	}
 
 }
