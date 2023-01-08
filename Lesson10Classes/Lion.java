@@ -128,9 +128,11 @@ public class Lion {
 		System.out.print("]");
 	}
 	public static void printLionArray(){
+		System.out.print("[");
 		for(int i=0; i<lionIntArray.length; i++) {
-			System.out.print(lionIntArray[i] + " ");
+			System.out.print(lionIntArray[i] + ",");
 		}
+		System.out.print("]");
 	}
 	@Override
 	public String toString() {
