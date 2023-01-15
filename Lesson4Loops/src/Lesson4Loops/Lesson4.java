@@ -1,6 +1,8 @@
 package Lesson4Loops;
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Lesson4 {
 
@@ -12,7 +14,14 @@ public class Lesson4 {
 		//quizPrintAnX();
 		
 		//paintMatrix(5);
-		 printXSecondLevel();
+		//printXSecondLevel();
+	//rintX_NaiveNsetedloop();
+		//printMultiplicationTable();
+		//printMultiplicationTable()
+		//printMatrix(7);
+		//MatrixWithX(3);
+		printMultiplicationTable(10);
+		//printMatrixWithX(3);
 	}
 	
 	public static void Ex1() {
@@ -109,91 +118,83 @@ public class Lesson4 {
 		System.out.println();
 	
 	}
-	 public void printXNLevel2()
-	    {
-	        int num = 5;
-	        for(int i=0; i<num; i++){ // outer loop - rows
-	            if(i==0 || i==num-1){
-	                for(int j=0; j<num; j++){ // inner loop for 1st and last rows
-	                    if(j==0 || j==num-1){
-	                        System.out.print("*");
-	                    }
-	                    else {
-	                        System.out.print(" ");
-	                    }
-	                }
-	            }
-	            else if(i==1 || i==num-2){
-	                for(int j=0; j<num; j++){ // inner loop for 2st and 1 before last rows
-	                    if(j==1 || j==num-2){
-	                        System.out.print("*");
-	                    }
-	                    else {
-	                        System.out.print(" ");
-	                    }
-	                }
-	            }
-	            else {
-	                for(int j=0; j<num; j++){ // inner loop for middle row
-	                    if(j == num/2){
-	                        System.out.print("*");
-	                    }
-	                    else {
-	                        System.out.print(" ");
-	                    }
-	                }
-	            }
-	            System.out.println("");
-	        }
-	    }
+
 
 	 //Print 'X' Shape to screen (Extra - Generic)
-	 public static void printXSecondLevel(){
+	 public static void printX_NaiveNsetedloop(){
 		
-		 int i=0;
 		 //Caliing to take the Size of matrix from the user
-		 int size = reSettningMatrixSize();
-		 boolean validNum = false;
+		 int sizeMat = reSettningMatrixSize();
+		 boolean valiSize = validMatrixSize(sizeMat);
 		 //if input is in valid we will go to another helper function that will 
 		 //keep taking again and again inputs until a set of valid value will show up
 		 //initializing a counter to the loop initialize boolean for QA 
-		 boolean validMatrixSize = false;
-		 do{
-			 i++;
-			 validNum = validMatrixSize(size);
-			 validMatrixSize = validMatrixSize(size);
-			 printXNLevel2();
-			 if(validMatrixSize == true) {
+		 int i = 0;
+		 while(valiSize == false) {
+			 sizeMat = reSettningMatrixSize();
+			 valiSize = validMatrixSize(sizeMat);
+			 if(valiSize == true) {
 				 break;
 			 }
-
-		 }while(validMatrixSize == false);
+			 else i++;
+		 }
+		 printMatrixNaiveApproce(sizeMat);		
 	 }
 
-
-
-
-
-
+	 //printin the program accordin to the stars unmbers
+	 public static void printMatrixNaiveApproce(int sizeMatrix) {
+		 for(int row=0; row<sizeMatrix; row++){ // outer loop - rows
+			 //printing 1st and last rows(row 0 and row 4)
+			 if(row==0 || row==sizeMatrix-1){
+				 for(int col=0; col<sizeMatrix; col++){ // inner loop for 1st and last rows
+					 if(col==0 || col==sizeMatrix-1){
+						 System.out.print("*");
+					 }
+					 else System.out.print(" ");
+				 }
+				 System.out.print("\n");
+			 }
+			 if(row==1 || row == sizeMatrix-2) {
+				 for(int col=0; col<sizeMatrix; col++){ // inner loop for 1st and last rows
+					 if(col==1 || col==sizeMatrix-2){
+						 System.out.print("*");
+					 }
+					 else System.out.print(" ");
+				 }
+				 System.out.print("\n");
+			 }
+			 if(row==sizeMatrix/2) {
+				 for(int col=0; col<sizeMatrix; col++){ // inner loop for 1st and last rows
+					 if(col==sizeMatrix/2){
+						 System.out.print("*");
+					 }
+					 else System.out.print(" ");
+				 }
+				 System.out.print("\n");
+			 }
+		 }
+	 }
 
 		 
-
 	 public static boolean validMatrixSize(int testSize) {
 		 boolean result = false;
-		 if(testSize == 0) {
+		if(testSize == 0) {
 			 System.out.println("Matrix size cant be 0");
 			 result = false;
 		 }
-		 if(testSize > 0 && testSize<21 && testSize % 2 ==0) {
-			 System.out.println("Matrix size is valid");
+		 if(0 < testSize && testSize<=21 && testSize % 2 !=0) {
 			 result = true;
+			 System.out.println("Matrix size is valid");
+
 		 }
-		 if(testSize < 0 || testSize > 21 || testSize%2 != 0 ) {
-			 System.out.println("Matrix size is not valid");
-			 result = false;
+		 else {
+			 if((testSize < 0 || testSize > 21 )|| (testSize%2 == 0) ) {
+				 System.out.println("Matrix size is not valid");
+				 result = false;
+			 }
 		 }
+
 		 return result;
-		 		 
 	 }
 
 	public static int reSettningMatrixSize() {
@@ -204,8 +205,6 @@ public class Lesson4 {
 		 int result = numStars.nextInt();
 		 return result;
 	 }
-
-
 	public static void quizPrintAnXComplicated(){
 		System.out.println("Quiz question print an X");
 		//we will first create a scanner object to receive the number of rows
@@ -238,28 +237,91 @@ public class Lesson4 {
 			System.out.print("\n");
 		}
 	}
-	public static void paintMatrix(int size) {
-		for(int i=0; i<size; i++) {
-			System.out.print(" | " +i +"|");
-		}
-		System.out.println();
-		System.out.println("--------------------------");
-		for(int i=0; i<size;i++) {
-			System.out.print(i + "|");
-			for(int j=0; j<size;j++) {
-				System.out.print(i + ","+ j+ " ");
-				System.out.print("|");
+	public static void printMatrix(String [][] mat, int size) {
+		for(int i=0; i<mat.length;i++) {
+			for(int j=0; j<mat.length;j++) {
+				System.out.print(mat[i][j]+ " ");
 			}
 			System.out.println();
 		}
+		
+	}
+	public static String[][] createMatrix(int size){
+		String[][] outPutMatrix = new String [size][size];
+		
+		for(int i=0; i<size;i++) {
+			for(int j=0; j<size;j++) {
+				outPutMatrix[i][j] = "(" + i + "," + j+ ")";
+			}
+			System.out.println();
+		}
+		return outPutMatrix;
+		
+	}
+	public static String[][] MatrixWithX(int size){
+		
+		String[][] matrixStart = createMatrix(size);
+		
+		for(int row = 0;row<size;row++) {
+			for(int col=0; col<size;col++) {
+				if((col == 0 && row==0) || (row==0 && col == size-1) ){
+					matrixStart[row][col] = " * ";
+				}
+				if(col == size/2 && row==col){
+					matrixStart[row][col] = " * ";	
+				}
+				if(col==row || col == size - row - 1) {
+					matrixStart[row][col] = " * ";	
+				}
+				
+			}
+		}
+		return matrixStart;
 	}
 	
+	public static ArrayList<String> indexWhereStarAre(int size){
+		ArrayList<String> arr = new ArrayList<String>();
+		String [][] matrix = MatrixWithX(size);
+		for(int i = 0; i < size; i++) {
+			for(int j=0; j< matrix.length; j++) {
+				if(matrix[i][j] == " * ") {
+					arr.add("(" + i + ", " + j + ")");
+				} 
+			}
+		}
+		for (String i : arr) {
+			System.out.println(i);
+		}
+		return arr;
+	}
+
+ 	public static void printMultiplicationTable(int size) {
+		//Prints a multiplication table 10 by 10 
+
+		//STEP 1 WE NEED TO THINK OF THE TABLE AS A MATRIX NEED TO BE FILLED WITH 
+		//THINBG SO WE WILL NEED TO GO THOROUGH NESTED LOOPS TO COUNT TO 10x10
+		System.out.println("The program will print " +  size + " by " +  size + " multiplication table");
+		System.out.println();
+		//first line we will print thte number 1-10 using a loop for asthethics
+		for(int i=1; i<=size;i++) {
+			System.out.format("%3d" + "|",i);
+		}
+		System.out.println();
+		
+		//printing in the outer loop the coloum of number 
+		//in the inner loop we will print the multiplication
+		for(int row=1; row<= size; row++) {
+			System.out.print( row + "|");
+			//iNNER Loop will do the multiplication
+			for(int col=1;col<=size;col++) {
+					System.out.format("%4d",row*col);
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
 
 
-	
-	
-	
-	
 }
 
 
