@@ -7,21 +7,7 @@ import java.util.List;
 public class Lesson4 {
 
 	public static void main(String[] args) {
-		//Ex1();
-		//Ex2sumTo1000(); 
-		//Ex3divideBy2();
-		//Ex3printTo10();
-		//quizPrintAnX();
-		
-		//paintMatrix(5);
-		//printXSecondLevel();
-	//rintX_NaiveNsetedloop();
-		//printMultiplicationTable();
-		//printMultiplicationTable()
-		//printMatrix(7);
-		//MatrixWithX(3);
-		printMultiplicationTable(10);
-		//printMatrixWithX(3);
+	
 	}
 	
 	public static void Ex1() {
