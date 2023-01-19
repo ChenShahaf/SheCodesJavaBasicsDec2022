@@ -3,23 +3,23 @@ package Lesson10Classes;
 import java.util.Scanner;
 
 public class Lion {
-	static int height;
-	static  int weight;
-	static String colour;
-	static double roarDecible;
-	static int maneLength;
+	int height;
+	int weight;
+	String colour;
+	double roarDecible;
+	int maneLength;
 	/*
 	 * Lecture 9 - Slide 15 - Can a Class contain an instance member of the 
 	 * 				same type of itself? try to create inside the Lion class 
 	 * 				a Lion instance and give it a value of an instance of another lion
 	 * 
 	 */
-	static Lion lion;
+	Lion lion;
 	/*
 	 * Lectrue 9 - Slide 16 - try to make a field in Lion class which is an int array and inialize in
 	 * 
 	 */
-	static int[] lionIntArray; 
+	int[] lionIntArray; 
 	
 	
 	
@@ -114,7 +114,7 @@ public class Lion {
 		System.out.println();
 	}
 	//Lecture 9 - Slide 18- write toString Method 
-	public static void toStringprintParameters() {	
+	public void toStringprintParameters() {	
 		
 		System.out.print("Lion[Height = " + height + ", Weight= " + weight + ", ");
 		System.out.print("colour= " + colour + ", roarDecible= " + roarDecible);
@@ -127,7 +127,7 @@ public class Lion {
 		printLionArray();
 		System.out.print("]");
 	}
-	public static void printLionArray(){
+	public void printLionArray(){
 		System.out.print("[");
 		for(int i=0; i<lionIntArray.length; i++) {
 			System.out.print(lionIntArray[i] + ",");
@@ -139,7 +139,7 @@ public class Lion {
 		return "Lion [height=" + height + ", weight=" + weight + ", colour=" + colour + ", roarDecible=" + roarDecible
 				+ ", maneLength=" + maneLength + ", lion=" + lion + "]";
 	}
-	public static void printLionAttributes(Lion myLion) {
+	public void printLionAttributes(Lion myLion) {
 		String printLion;
 		printLion =  " Lion [height=" + height + ", weight=" + weight + ", colour=" + colour + ", roarDecible=" + roarDecible
 				+ ", maneLength=" + maneLength + ", lionIntArray = ";
@@ -147,6 +147,18 @@ public class Lion {
 		printLionArray();
 		System.out.print("]");
 
+	}
+	/*
+	 * Lecture 20- Slide 27 - create a constructor in a way that u will use the this word 
+	 */
+	Lion(int height, int weight, String colour, double roarDecible, int maneLength, Lion lion, int[] lionIntArray){
+		this.height = height;
+		this.weight = weight;
+		this.colour = colour;
+		this.roarDecible = roarDecible;
+		this.maneLength = maneLength;
+		this.lion = lion;
+		this.lionIntArray = lionIntArray;	
 	}
 
 }
