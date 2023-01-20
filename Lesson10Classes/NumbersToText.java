@@ -1,6 +1,7 @@
 package Lesson10Classes;
 
 import java.text.DecimalFormat;
+import java.util.*;
 
 public class NumbersToText {
 	/*
@@ -41,6 +42,74 @@ public class NumbersToText {
 			" eighteen",
 			" nineteen"
 	};
+	
+	public static int receiveNum() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter a number: ");
+		int num = input.nextInt();
+		return num;
+	}
+	
+	public static boolean validNumOfDigits(int num) {
+		boolean validNumOfDigits = false;
+		int numLength = (int) (Math.log10(num) + 1);
+		if(numLength <= 10 || numLength >= 0) {
+			validNumOfDigits = true;
+		}
+		else {
+			validNumOfDigits = false;
+		}
+		return validNumOfDigits;
+	}
+	public static int checkIfZero(int num) {
+		if(num == 0) {
+			System.out.println("The number: " + num + " is Zero");
+		}
+		return num;
+	}
+	public static int checkNegative(int num) {
+		while(num < 0) {
+			System.out.println("You have chosen a negative nummber choose a positive number");
+			num = receiveNum();
+		}
+		return  num;
+		
+	}
+	
+	public static int validNum(int num) {
+		boolean valid = false;
+		int validNumber = num;
+		valid  = validNumOfDigits(num);
+		while(valid  == false) {
+			validNumber = receiveNum();
+			validNumOfDigits(validNumber);
+			validNumber = checkNegative(num);
+			validNumber = checkIfZero(validNumber);	
+		}
+		if(valid == true) {
+			num = checkNegative(num);
+			num = checkIfZero(validNumber);	
+			System.out.print("Number is: " + num);
+		}
+		return validNumber;
+	}
+	
+	public static void startProgramm() {
+		int number = receiveNum();
+		boolean validNum = false;	
+		number = validNum(number); 
+		String result = "";
+		int numLength = (int) (Math.log10(number) + 1);
+		if(numLength <=4) {
+			result = convertLessThanOneThousand(number);
+			System.out.println(result);
+		}
+		else{
+			result = convert(number);
+			System.out.println(result);
+			
+		}
+	}
 
 
 	private static String convertLessThanOneThousand(int number) {

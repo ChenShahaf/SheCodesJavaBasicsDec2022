@@ -31,6 +31,7 @@ public class Main {
 		 //lecture20Slide28Question3Ex3();
 		//lecture20Slide28Question3Ex5();
 		//sepearteNum();
+		NumbersToText.startProgramm(); 
 		
 		
 	}
