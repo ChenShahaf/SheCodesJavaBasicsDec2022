@@ -80,16 +80,14 @@ public class NumbersToText {
 		boolean valid = false;
 		int validNumber = num;
 		valid  = validNumOfDigits(num);
-		while(valid  == false) {
+		while(validNumber < 0 ||  valid == false) {
+			validNumber = checkNegative(validNumber);
+			valid  = validNumOfDigits(validNumber);
+			validNumber = checkIfZero(validNumber);
+			if(validNumber == 0) {
+				break;
+			}
 			validNumber = receiveNum();
-			validNumOfDigits(validNumber);
-			validNumber = checkNegative(num);
-			validNumber = checkIfZero(validNumber);	
-		}
-		if(valid == true) {
-			num = checkNegative(num);
-			num = checkIfZero(validNumber);	
-			System.out.print("Number is: " + num);
 		}
 		return validNumber;
 	}
@@ -106,8 +104,7 @@ public class NumbersToText {
 		}
 		else{
 			result = convert(number);
-			System.out.println(result);
-			
+			System.out.println(result);	
 		}
 	}
 
